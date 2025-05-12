@@ -3,10 +3,14 @@
 #include <math.h>
 
 //Faça um programa que receba a quantidade de valores e mostre a diferença entre os valores menores que 60kg e maiores que 70kg
+//variação 1 - Vai comparar o menor e o maior valor e mostrar a diferença entre eles 
+
 
 main ()
 {
-int contadorbaixo,contadoralto = 0; 
+	
+int	maior = -999; 
+int menor = 999;
 int ntermos = 0;
 int valor = 0;
 int c;
@@ -17,7 +21,9 @@ int diferenca = 0;
 printf("Insira o numero de termos a ser digitado: ");
 scanf("%d",&ntermos);
 
+
 printf("===============\n");
+
 
 for (c=1;c<=ntermos;c++)	
 
@@ -26,30 +32,24 @@ for (c=1;c<=ntermos;c++)
 	printf("Insira um valor: ");
 	scanf("%d",&valor);
 	
-	if (valor>=70)
+	//confirma se os valores são maiores que setenta ou menores que sessenta e após ve o maior e menor 
+	
+	if (valor>=70 && valor > maior)
 	
 		{
-		contadoralto+=1;
+		maior = valor;
 		}
 		
-	else if (valor<=60)
+	if (valor<=60 && valor < menor)
 	
-		{
-		contadorbaixo+=1;	
-		}
-			
-	if (valor<0)
-	
-		{
-		break;	
-		}
+		{		
+		menor = valor;
+		}	
 		
 	}
 	
-diferenca = contadoralto-contadorbaixo; //faz a conta
-diferenca = abs(diferenca);
+diferenca = maior-menor; //faz a conta
+diferenca = abs(diferenca);// confirma se o resultado foi um numero inteiro 
 
-printf("%d",diferenca);
-
-
+printf("A Diferenca entre o maior (%d) e o menor (%d) eh de %d",maior, menor, diferenca);
 }
