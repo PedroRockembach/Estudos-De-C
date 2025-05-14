@@ -18,22 +18,27 @@ int main()
 	float rin;
 	float vout = 0;
 	
-	printf("digite o numero de entradas: ");
+	printf("digite o numero de entradas: "); // recebe numero fixo de entradas
 	scanf("%d",&n);
 	
-	printf("Qual sera o Resistor de Referencia? ");
+	printf("Qual sera o Resistor de Referencia? "); // recebe numero fixo de entradas
 	scanf("%f",&vref);
 	
+	// anuncia as entrdas
 		
 	printf("=============\n  RF - %.2f\n  Vins - %d\n=============\n",vref,n);
 	
 	// n = N de entradas 
+	
 	// vref = Resistor de referencia
 	// valor variavel que é referente as entradas
 	
 	
 	for (int i = 1;i <= n;i++)
 	{
+		//Vin é igual as entradas de tensoa que serão limpas toda vez que repetir
+		//rin é igual as entradas de resistencia que serão limpas toda vez que repetir
+		
 		Vin = rin = 0;
 		
 		printf("Qual sera a %d tensao? ",i);
@@ -42,11 +47,15 @@ int main()
 		printf("\nQual resistor dessa entrada? ");
 		scanf("%f",&rin);
 		
-		vout =(vout + (vref/rin)*Vin);
+		//essa é a formula pedida pelo professor, trabalhar em float p evitar se perder
+		
+		vout = (vout + (vref/rin)*Vin);
+		
+		// adiciona as entradas parciais a variavel que salva o valor parcial
 	}	
-	
+	// nega o valor resultante
 	vout = -vout;
-	printf("Saida final = %fV",vout);
+	printf("Saida final = %.2fV",vout);
 	
 	
 	
