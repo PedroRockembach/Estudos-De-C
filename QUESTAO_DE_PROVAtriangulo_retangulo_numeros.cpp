@@ -11,11 +11,13 @@ int main()
 	
 	for (int l = 0; l<=altura; l++)
 	{
+		
 		for (int c = 0;c <= l; c++)	
 		{
 			contador += 1;
 			printf("%d ",contador);
 		}
+		
 		printf("\n");
 	}
 	

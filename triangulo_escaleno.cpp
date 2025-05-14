@@ -18,7 +18,8 @@ int main()
 		printf("* ");
 		
 		}
-		printf("\n");
+		
+	printf("\n");
 	}
 	
 	for (int l = altura-1; l >= 1; l--)
@@ -31,7 +32,8 @@ int main()
 		printf("* ");
 		
 		}
-		printf("\n");
+		
+	printf("\n");
 	}	
 		
 	
