@@ -8,7 +8,8 @@ int main(){
 	float quant = 0;
 	float soma = 0;
 	int saida = 1;
-
+	float preco_final;
+	
 printf("------TABELA DE COMPONENTES------");
 printf("\n1 - Resistor = R$0.10\n2 - Capacitor = R$0.20\n3 - Indutor = R$0.30\n4 - Diodo = R$0.40\n5 - LED = R$0.50\n6 - Transistor = R$0.60");
 
@@ -45,7 +46,8 @@ printf("\n1 - Resistor = R$0.10\n2 - Capacitor = R$0.20\n3 - Indutor = R$0.30\n4
 			{
 			soma += (quant*0.10)-(quant*0.10)*0.10;
 			}
-		printf("%f",soma);
+			
+		preco_final = soma;
 		}
 		
 		
