@@ -27,8 +27,8 @@ int main()
 		if (s == 1)
 		{
 			
-		somatorio += 0+1;
-			
+		//somatorio += 0+1;
+		somatorio += passo;	
 		}
 		else
 		{
