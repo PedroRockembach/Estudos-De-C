@@ -25,16 +25,12 @@ int main()
 		printf("Digite um numero para ser adicionado a posicao %d da lista: ",i);
 		scanf("%d",&v);
 		
-		if (v > maior)
-		{
-			maior = v;
-		}
 		
-		if (v > 5)
-		
+		if (v > 5)	
 		{
 			quadrado = v*v;
 			lista[i] = quadrado;
+			
 			if (quadrado > maior)
 			{
 				maior = quadrado;
@@ -42,10 +38,13 @@ int main()
 		}
 		
 		else
-		
 		{
-		
 			lista[i] = v;
+			
+			if (v > maior)
+			{
+				maior = v;
+			}
 		}
 	}
 	
