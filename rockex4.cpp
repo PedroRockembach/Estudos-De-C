@@ -15,31 +15,42 @@ int main()
 	
 	for (int i = 0;i < tamanho;i++)
 	{
-		int temp = 0;
-		
 		printf("digite o valor da posicao %d: ",i);
-		scanf("%d",&temp);
-		
-		cript[i] = temp;
-		
+		scanf("%d",&cript[i]);
 	}
 	 
-		for (int a = 0;a < tamanho - 1;a++)
+	 
+	for (int a = 0;a < tamanho; a++)
+	{
+		if (cript[a] == 1)
 		{
-			if (cript[a] == 1)
+			
+			if (nome[a] >= 'a' && nome[a] <= 'z')
 			{
-				
-				if (cript[a] >= 'a' && cript[a] <= 'z')
-				{
-					nome[a] = nome[a] - 32;
-				}
-					
-				else
-				{
-					nome[a] = nome[a] + 32;	
-				}
-				
-			}		
-		}
-		printf("%c",cript[0]);
+				nome[a] = nome[a] - 32;
+			}	
+						
+			else
+			{
+				nome[a] = nome[a] + 32;	
+			}
+			
+		}	
+	
+		if (cript[a] == 2)
+		{
+			nome[a] = nome[a] + 10;
+		}	
+		
+		if (cript[a] == 3)
+		{
+			nome[a] = nome[a] - 10;
+		}	
+			
+		if (cript[a] == 0)
+		{
+			nome[a] = nome[a];
+		}		
+	}
+		printf("Resultado: %s\n", nome);
 }
