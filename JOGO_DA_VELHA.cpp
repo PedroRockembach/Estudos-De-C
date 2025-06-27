@@ -1,17 +1,51 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 void linha()
 {
-	printf("--------------------------------\n");
+	printf("------------------------\n");
+}
+
+bool verifica_jogo(int numeros_jogador[],int quantidade_de_jogadas)
+{
+	// vai verificar se jogador X ou O ganhou 
+	// verifia se deu velha
+	
+	int vitorias [8][3] = {
+	{1,2,3}, {4,5,6}, {7,8,9}, // Linhas
+    {1,4,7}, {2,5,8}, {3,6,9}, // Colunas
+    {1,5,9}, {3,5,7}           // Diagonais
+	};
+	
+	for (int percorre_vitorias = 0; percorre_vitorias < 8; percorre_vitorias++)
+	{
+		int acertos = 0;
+		
+		for (int percorre_opcao = 0; percorre_opcao < 3; percorre_opcao++)
+		{
+			int numero_da_vitoria = vitorias[percorre_vitorias][percorre_opcao];
+			
+			for (int confirma_numero = 0; confirma_numero < quantidade_de_jogadas; confirma_numero++)
+			{
+				if (numeros_jogador[confirma_numero] == numero_da_vitoria )	
+				{
+					acertos++;
+					break;
+				}	
+			}
+		}
+	if (acertos == 3)
+		return true;
+	}
+	return false;
 }
 
 int main()
 {	
+
 //DEFINE VARIAVEIS 
-	
-	
 	int jogo_inicial [3][3];
 	// variavael inicial do jogo, usada para demonstrar posições
 	
@@ -26,10 +60,10 @@ int main()
 	int posX = 0;
 	int posO = 0;
 	// variavel que vai armazenar os numeros ja escolhidos para: Se numero in vetor, return false, else true
-
+printf(" XxJOGO DA VELHA 2000xX\n");
+linha();
 
 //Matrix inicial, mostrando as posiçoes a esquerda(1 a 9) e a direita a matrix que vai ser preenchida 
-
 	int conta = 0;
 	for (int i = 0; i < 3; i++)
 	{
@@ -95,10 +129,8 @@ int main()
 		//o if inline é para descobrir se a jogada é do jogador 'X' ou do jogador 'O'
 		// if inline é coisa doida, nao entendo nao
 		
-		jogador = (turno % 2 == 0) ? 'X' : 'O';
-		{	
-			
-			printf("Que posicao vai escolher jogador %c?(1-9) ",jogador);		
+		jogador = (turno % 2 == 0) ? 'X' : 'O';	
+			printf("\nQue posicao vai escolher jogador %c?(1-9) ",jogador);		
 			scanf("%d",&escolha);
 			
 			bool repetido = false;
@@ -123,11 +155,14 @@ int main()
 			
 			else
 			{
+				system("cls");				
 				numeros_escolhidos[turno] = escolha;
 				
 					int linha = (escolha - 1) / 3;
 					int coluna = (escolha - 1) % 3;
+					
 					jogo_atualiza[linha][coluna] = jogador;  // 'X' ou 'O'
+					
 					//calcula linah e coluna a partir da escolha
 					
 				// for que vai mostrar cada jogada
@@ -159,10 +194,10 @@ int main()
 					
 					printf("\n");
 					if (i < 2)
-        				printf("---|---|--- ---|---|---\n");
-						
+        				printf("---|---|--- ---|---|---\n");		
 				}
 				
+// somando contadores e coloccando em lista
 				
 				if (jogador == 'X')
 				{
@@ -174,11 +209,40 @@ int main()
 					numeros_escolhidos_O [posO] = escolha;	
 					posO++;
 				}
-			}
-		}	
-	}
+			}	
+			if (turno >= 4)
+				{
+					bool vitoria = false; // guarda resultado da funcao 
+					
+					if (jogador == 'X')
+					{
+						vitoria = verifica_jogo(numeros_escolhidos_X,posX);
+						
+					}
+					else
+					{
+						vitoria = verifica_jogo(numeros_escolhidos_O,posO);	
+					}
 	
-//Testando as funcionalidades
+				
+				if (vitoria == true)
+				{
+					linha();
+					printf("FIM DE JOGO! Jogador '%c' vence \n",jogador);
+					linha();
+					break;
+				}
+			}
+		if (turno == 8)
+		{
+			linha();
+			printf("DEU VELHA!, O JOGO EMPATOU.\n");
+			linha();
+		}		
+	}
+
+	
+/*Testando as funcionalidades
 	
 	printf("TODAS AS ESCOLHAS -");
 	for (int i = 0;i < 9;i++)
@@ -200,7 +264,5 @@ int main()
 		printf(" %d ",numeros_escolhidos_O[i]);	
 	}	
 	
-	
-		
-
+*/
 }
