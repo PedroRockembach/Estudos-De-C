@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <string.h>
 int verificarVitoria(char tabuleiro[3][3], char jogador);
 
 int main() {
@@ -39,6 +40,8 @@ int main() {
             while (1) {
                 printf("Jogador '%c', escolha uma posição (1-9): ", jogadorAtual);
                 scanf("%d", &posicao);
+                
+                system("cls");
 
                 if (posicao >= 1 && posicao <= 9) {
                     int linha = (posicao - 1) / 3;
