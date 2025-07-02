@@ -141,6 +141,39 @@ int main()
 	// cada uma das manipulações em diferentes matrizes para ser possivel a vizualização 
 	// essas manipuações seram selecionadas a partir de um menu
 	
+	// nao sera adicionado mas para fazer uma transposta de valores variaveis seria algo como 
+	
+	/*#include <stdio.h>
+
+int main() {
+    int linhas = 2, colunas = 3;
+    int matriz[2][3] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    int transposta[3][2]; // dimensões invertidas
+
+    // Copiar invertendo os índices
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            transposta[j][i] = matriz[i][j];
+        }
+    }
+
+    // Mostrar a matriz transposta
+    for (int i = 0; i < colunas; i++) {
+        for (int j = 0; j < linhas; j++) {
+            printf("%d ", transposta[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+invertemos o tamanho da matriz por x linhas y colunas para y colunas x linhas*/
+	
+	
 	float matriz[3][3];
 	float temporario;
 	
