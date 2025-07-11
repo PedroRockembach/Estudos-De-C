@@ -32,7 +32,15 @@ int main()
     verifica_maiuscula(palavra_usuario);
     verifica_minuscula(palavra_usuario);
     
-    printf("Palavra transformada: %s\n", palavra_usuario);
+	printf("Palavra transformada: %s\n", palavra_usuario);
+	int t;
+	t = strlen(palavra_usuario);
+	
+	printf("Codigo ascci da palavra transformada de tras p frente: ");
+	for (int i = t-1; i >= 0;i--)
+	{
+		printf("%d ",palavra_usuario[i]);
+	}
 
     return 0;
 }
