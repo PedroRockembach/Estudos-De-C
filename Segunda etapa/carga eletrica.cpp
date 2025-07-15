@@ -38,17 +38,17 @@ int main()
 	float q;
 	float d;
 	
-	printf("quantidade de cargas negativas do corpo 1 = ");
+	printf("quantidade de cargas negativas do corpo 1: ");
 	scanf("%f",&k);	
 	
-	printf("quantidade de cargas negativas do corpo 2= ");
+	printf("quantidade de cargas negativas do corpo 2: ");
 	scanf("%f",&q);	
 	
-	printf("distancia =");
+	printf("distancia: ");
 	scanf("%f",&d);		
 	
 float forca = f_eletrico(k,q,d);	
-printf("%f",forca);
+printf("A forca eletrica que atua entre esses dois corpos eh %f",forca);
 
 /*	float saida = expressao();
 	printf("%f",saida);
