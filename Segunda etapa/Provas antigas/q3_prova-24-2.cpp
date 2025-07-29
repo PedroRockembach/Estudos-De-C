@@ -8,10 +8,10 @@ float indutancia_equiv(float ind_um,float ind_dois)
 	l_equiv = (ind_um*ind_dois/(ind_um+ind_dois));
 	return l_equiv;
 }
-float energia_total(float amperes,float l_equiv)
+float energia_total(float amperes,float indutor_um,float indutor_dois)
 {
 	float energia;
-	
+	float l_equiv = indutancia_equiv(indutor_um,indutor_dois);
 	energia = (0.5)*(l_equiv * (amperes*amperes));
 	return energia;
 }
@@ -35,7 +35,7 @@ int main()
 	printf("digite a corrente: ");
 	scanf("%f",&corrente);
 	
-	eT = energia_total(corrente, indutor_equivalente);
+	eT = energia_total(corrente, indutor_um,indutor_dois);
 	
 	printf("Energia total: %.2fJ",eT);
 }
